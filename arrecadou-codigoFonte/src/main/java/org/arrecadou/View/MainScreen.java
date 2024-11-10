@@ -26,14 +26,13 @@ public class MainScreen extends JFrame {
     private void initializeUI() {
         setTitle("Sistema de Gestão");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setResizable(false);
+        setLocationRelativeTo(null);
 
-        // Configurando a imagem de fundo
         ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/images/img.png")));
         backgroundLabel = new JLabel(backgroundImage);
-        backgroundLabel.setSize(backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
+        backgroundLabel.setSize(backgroundImage.getIconWidth()+50, backgroundImage.getIconHeight()+50);
         setContentPane(backgroundLabel);
-
-        // Ajustar o tamanho da tela ao tamanho da imagem
         setSize(backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
         setLocationRelativeTo(null);
 
@@ -48,19 +47,16 @@ public class MainScreen extends JFrame {
     private void setupMenu() {
         JMenuBar menuBar = new JMenuBar();
 
-        // Menu Ação
         menuAcao = new JMenu("Ação");
         menuBar.add(menuAcao);
 
-        // Submenu cadastrar coordenador
         itemCoordenador = new JMenuItem("Cadastrar Coordenador");
+        itemCoordenador.addActionListener(actionEvent -> openCadastroCoordenadorView());
         menuAcao.add(itemCoordenador);
 
-        // Submenu cadastrar uma ação de produção de evento de comida
         itemEventoComida = new JMenuItem("Cadastrar uma Ação de Produção de Evento de Comida");
         menuAcao.add(itemEventoComida);
 
-        // Submenu cadastrar uma ação de contribuição direta
         itemContribuicaoDireta = new JMenuItem("Cadastrar uma Ação de Contribuição Direta");
         menuAcao.add(itemContribuicaoDireta);
 
@@ -71,6 +67,13 @@ public class MainScreen extends JFrame {
         if (context != null) {
             context.close();
         }
+    }
+
+    private void openCadastroCoordenadorView() {
+        SwingUtilities.invokeLater(() -> {
+            CadastroCoordenadorView screen = new CadastroCoordenadorView(context);
+            screen.setVisible(true);
+        });
     }
 
     public static void main(String[] args) {
