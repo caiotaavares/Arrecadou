@@ -36,6 +36,13 @@ public class DoacaoDinheiro extends Doacao {
     }
 
     @Override
+    public String toString() {
+        return super.toString()+
+                "valor=" + valor +
+                '}';
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), getValor());
     }

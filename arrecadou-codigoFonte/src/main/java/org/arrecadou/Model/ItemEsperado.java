@@ -17,7 +17,7 @@ public class ItemEsperado {
     private int quantidadeEmKg;
     private double valorKg;
 
-    @OneToOne(cascade = CascadeType.ALL,fetch =FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL,fetch =FetchType.EAGER)
     @JoinColumn(name = "itemFaltante_id", foreignKey = @ForeignKey(name = "FK_esperado_faltante"))
     private ItemFaltante itemFaltante;
 

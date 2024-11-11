@@ -1,5 +1,7 @@
 package org.arrecadou.Model;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,8 +12,12 @@ public class Coordenador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+    @Column(nullable = false)
     private String nome;
+    @Column(nullable = false)
     private String cpf;
+    @Column(nullable = false)
     private String telefone;
 
     @ManyToMany(mappedBy = "coordenadores", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
@@ -22,6 +28,7 @@ public class Coordenador {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
+        this.acoesCoordenadas = new ArrayList<>();
     }
 
     public Coordenador() {

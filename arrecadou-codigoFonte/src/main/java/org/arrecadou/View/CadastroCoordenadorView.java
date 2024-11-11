@@ -2,17 +2,15 @@ package org.arrecadou.View;
 
 import javax.swing.*;
 import java.awt.*;
-
-import org.arrecadou.Controladores.ControllerAcao;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.arrecadou.Controladores.ControllerCoordenador;
 
 public class CadastroCoordenadorView extends JFrame {
+    private final ControllerCoordenador controller;
     private JTextField nomeField, cpfField, telefoneField;
-    private JButton submitButton;
-    private AnnotationConfigApplicationContext context;
 
-    public CadastroCoordenadorView(AnnotationConfigApplicationContext context) {
-        this.context = context;
+
+    public CadastroCoordenadorView(ControllerCoordenador controller) {
+        this.controller = controller;
         setTitle("Cadastro de Coordenador");
         setSize(350, 200);
         setLocationRelativeTo(null);
@@ -36,13 +34,17 @@ public class CadastroCoordenadorView extends JFrame {
         telefoneField = new JTextField(20);
         formPanel.add(telefoneField);
 
-        submitButton = new JButton("Cadastrar");
+        JButton submitButton = new JButton("Cadastrar");
         formPanel.add(submitButton);
 
         submitButton.addActionListener(e -> {
-            ControllerAcao controller = context.getBean(ControllerAcao.class);
-            controller.cadastrarCoordenador(nomeField.getText(), cpfField.getText(), telefoneField.getText());
-            JOptionPane.showMessageDialog(this, "Coordenador cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            try {
+                controller.cadastrarCoordenador(nomeField.getText(), cpfField.getText(), telefoneField.getText());
+                JOptionPane.showMessageDialog(this, "Coordenador cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Erro", JOptionPane.WARNING_MESSAGE);
+            }
+
         });
 
         add(formPanel, BorderLayout.CENTER);

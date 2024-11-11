@@ -28,7 +28,7 @@ public abstract class Acao {
     )
     private List<Coordenador> coordenadores;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "entidade_id", foreignKey = @ForeignKey(name = "FK_acao_entidade"))
     private Entidade entidade;
 
@@ -122,14 +122,7 @@ public abstract class Acao {
     @Override
     public String toString() {
         return "Acao{" +
-                "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", objetivoAcao='" + objetivoAcao + '\'' +
-                ", dataInicio=" + dataInicio +
-                ", dataFim=" + dataFim +
-                ", coordenadores=" + coordenadores +
-                ", entidade=" + entidade +
                 '}';
     }
 }

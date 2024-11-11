@@ -1,9 +1,10 @@
 package org.arrecadou.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Entidade {
@@ -22,6 +23,8 @@ public class Entidade {
     private String cep;
     private String numero;
 
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "entidade")
+    private List<Acao> acoes;
 
     public Entidade(String numero, String cep, String uf, String cidade, String bairro, String logradouro, String telefone, String cnpj, String nome) {
         this.numero = numero;
@@ -33,9 +36,22 @@ public class Entidade {
         this.telefone = telefone;
         this.cnpj = cnpj;
         this.nome = nome;
+        this.acoes = new ArrayList<>();
     }
 
+
+
+
     public Entidade() {}
+
+
+    public List<Acao> getAcoes() {
+        return acoes;
+    }
+
+    public void setAcoes(List<Acao> acoes) {
+        this.acoes = acoes;
+    }
 
     public String getNome() {
         return nome;
@@ -113,4 +129,19 @@ public class Entidade {
         return id;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Entidade entidade)) return false;
+        return Objects.equals(getId(), entidade.getId()) && Objects.equals(getNome(), entidade.getNome()) && Objects.equals(getCnpj(), entidade.getCnpj()) && Objects.equals(getTelefone(), entidade.getTelefone()) && Objects.equals(getLogradouro(), entidade.getLogradouro()) && Objects.equals(getBairro(), entidade.getBairro()) && Objects.equals(getCidade(), entidade.getCidade()) && Objects.equals(getUf(), entidade.getUf()) && Objects.equals(getCep(), entidade.getCep()) && Objects.equals(getNumero(), entidade.getNumero()) && Objects.equals(acoes, entidade.acoes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getNome(), getCnpj(), getTelefone(), getLogradouro(), getBairro(), getCidade(), getUf(), getCep(), getNumero(), acoes);
+    }
+
+    public void addAcao(Acao acao) {
+        acoes.add(acao);
+    }
 }

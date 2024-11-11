@@ -14,8 +14,7 @@ import java.util.Objects;
 @Entity
 public class AcaoContribuicaoDireta extends Acao{
 
-
-   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<DoacaoDinheiro> doacoesDinheiro;
 
     public AcaoContribuicaoDireta(Entidade entidade, List<Coordenador> coordenadores, LocalDateTime dataFim, LocalDateTime dataInicio, String objetivoAcao, String descricao, String nome) {
@@ -47,9 +46,7 @@ public class AcaoContribuicaoDireta extends Acao{
 
     @Override
     public String toString() {
-        return "AcaoContribuicaoDireta{" +
-                "doacoesDinheiro=" + doacoesDinheiro.size() +
-                '}';
+        return super.toString();
     }
 
     @Override
@@ -63,5 +60,9 @@ public class AcaoContribuicaoDireta extends Acao{
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), getDoacoesDinheiro());
+    }
+
+    public void addDoacao(DoacaoDinheiro doacao) {
+        this.doacoesDinheiro.add(doacao);
     }
 }
