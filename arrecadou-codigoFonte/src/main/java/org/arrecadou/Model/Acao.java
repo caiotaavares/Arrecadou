@@ -20,7 +20,7 @@ public abstract class Acao {
     private LocalDateTime dataInicio;
     private LocalDateTime dataFim;
 
-    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @JoinTable(
             name = "acao_coordenador",
             joinColumns = @JoinColumn(name = "acao_id"),
@@ -123,7 +123,7 @@ public abstract class Acao {
     public String toString() {
         return "Acao{" +
                 ", nome='" + nome + '\'' +
-                ", coordenadores='" + coordenadores + '\'' +
+                //", coordenadores='" + coordenadores + '\'' +
                 '}';
     }
 }

@@ -69,11 +69,12 @@ public class CadastrarDoacaoParaAcaoContribuicaoDiretaView extends JFrame {
         JButton cadastrarButton = new JButton("Cadastrar Doação");
         add(cadastrarButton, BorderLayout.SOUTH);
 
-        AtomicBoolean isAnonimo = new AtomicBoolean(true);
+        AtomicBoolean isAnonimo = new AtomicBoolean(false);
 
         anonimidadeSimCheckBox.addActionListener(e -> {
             if (anonimidadeSimCheckBox.isSelected()) {
                 anonimidadeNaoCheckBox.setSelected(false);
+                isAnonimo.set(true);
             }
         });
 
@@ -86,6 +87,7 @@ public class CadastrarDoacaoParaAcaoContribuicaoDiretaView extends JFrame {
             }
         });
 
+
         cadastrarButton.addActionListener(e -> {
             try {
                 AcaoContribuicaoDireta acaoSelecionada = acoesList.getSelectedValue();
@@ -97,7 +99,7 @@ public class CadastrarDoacaoParaAcaoContribuicaoDiretaView extends JFrame {
                         acaoSelecionada
 
                 );
-
+                System.out.println(isAnonimo.get());
                 JOptionPane.showMessageDialog(this, "Doação cadastrada com sucesso!", "Cadastro Completo", JOptionPane.INFORMATION_MESSAGE);
 
             } catch (Exception ex) {

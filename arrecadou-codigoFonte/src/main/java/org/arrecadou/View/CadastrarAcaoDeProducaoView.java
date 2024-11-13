@@ -114,9 +114,7 @@ public class CadastrarAcaoDeProducaoView extends JFrame {
         configureItemButtons();
         configureColaboradorButtons();
         configSalvarBtn();
-
     }
-
 
     private void configureColaboradorButtons() {
         addColaboradorButton.addActionListener(e -> {
