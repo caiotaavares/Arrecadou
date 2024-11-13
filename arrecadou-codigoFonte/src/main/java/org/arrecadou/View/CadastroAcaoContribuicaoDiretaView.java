@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+@SuppressWarnings("DuplicatedCode")
 public class CadastroAcaoContribuicaoDiretaView extends JFrame {
     private JTextField nomeField, descricaoField, objetivoField, dataInicioField, dataFimField;
     private JList<Coordenador> coordenadorList;

@@ -123,6 +123,7 @@ public abstract class Acao {
     public String toString() {
         return "Acao{" +
                 ", nome='" + nome + '\'' +
+                ", coordenadores='" + coordenadores + '\'' +
                 '}';
     }
 }

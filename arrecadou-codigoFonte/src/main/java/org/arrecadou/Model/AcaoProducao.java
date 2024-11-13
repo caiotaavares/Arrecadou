@@ -27,8 +27,6 @@ public class AcaoProducao extends Acao{
         this.colaboradores = colaboradores;
         this.itensEsperados = itensEsperados;
         this.doacoes = new ArrayList<>();
-
-
     }
 
     public AcaoProducao() {
@@ -45,9 +43,10 @@ public class AcaoProducao extends Acao{
 
     @Override
     public String toString() {
-        return "AcaoProducao{" +
+        return super.toString() +
                 "doacoes=" + doacoes +
                 ", colaboradores=" + colaboradores +
+                ", itens esperados=" + itensEsperados +
                 '}';
     }
 
