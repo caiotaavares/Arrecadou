@@ -1,11 +1,11 @@
 package org.arrecadou.Services;
 
+import jakarta.transaction.Transactional;
 import org.arrecadou.Model.*;
 import org.arrecadou.Repositories.AcaoProducaoRepository;
 import org.arrecadou.Repositories.EntidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -14,13 +14,17 @@ public class ServiceAcaoProducao {
 
     private final EntidadeRepository entidadeRepository;
     private final AcaoProducaoRepository acaoProducaoRepository;
-
     @Autowired
-    public ServiceAcaoProducao(EntidadeRepository entidadeRepository, AcaoProducaoRepository acaoProducaoRepository) {
+    public ServiceAcaoProducao(
+            EntidadeRepository entidadeRepository,
+            AcaoProducaoRepository acaoProducaoRepository
+    ) {
         this.entidadeRepository = entidadeRepository;
         this.acaoProducaoRepository = acaoProducaoRepository;
     }
 
+
+    @Transactional
     public void cadastrarAcaoProducao(
             List<Coordenador> coordenadores,
             LocalDateTime dataFim,
@@ -30,13 +34,15 @@ public class ServiceAcaoProducao {
             String nome,
             List<Colaborador> colaboradores,
             List<ItemEsperado> itensEsperados
-    ){
-        Entidade entidade = this.entidadeRepository.findById(1L).orElseThrow(()-> new RuntimeException("Entidade não encontrada!"));
+    ) {
+        Entidade entidade = this.entidadeRepository.findById(1L)
+                .orElseThrow(() -> new RuntimeException("Entidade não encontrada!"));
+
         AcaoProducao acaoProducao = new AcaoProducao(
-                entidade, coordenadores, dataFim, dataInicio, objetivo, descricao, nome, colaboradores, itensEsperados
+                entidade, coordenadores , dataFim, dataInicio, objetivo, descricao, nome, colaboradores, itensEsperados
         );
+        coordenadores.forEach(c -> c.addAcao(acaoProducao));
         entidade.addAcao(acaoProducao);
-        System.out.println(acaoProducao);
         this.entidadeRepository.save(entidade);
     }
 
@@ -51,5 +57,23 @@ public class ServiceAcaoProducao {
 
     public Colaborador cadastrarColaborador(String nomeColaborador, String email, String telefone) {
         return new Colaborador(nomeColaborador, email, telefone);
+    }
+
+    public void cadastrarDoacaoDeItem( String telefoneDoador,
+                                       String nomeDoador,
+                                       boolean isAnonimo,
+                                       String nome,
+                                       int quantidadeEmKg,
+                                       AcaoProducao acaoProducao) {
+        DoacaoItem doacaoItem = new DoacaoItem(telefoneDoador, nomeDoador, isAnonimo, nome, quantidadeEmKg);
+        acaoProducao.addDoacaoItem(doacaoItem);
+        this.acaoProducaoRepository.save(acaoProducao);
+    }
+
+    public void cadastrarDoacaoDinheiro(String telefone, String nome, boolean isAnonimo, double valor, AcaoProducao acaoSelecionada) {
+
+        acaoSelecionada.addDoacaoDinheiro(new DoacaoDinheiro(telefone, nome, isAnonimo, valor));
+        this.acaoProducaoRepository.save(acaoSelecionada);
+
     }
 }

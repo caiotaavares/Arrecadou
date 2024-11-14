@@ -37,11 +37,25 @@ public class ControllerAcaoProducao {
         );
     }
 
-    public List<AcaoProducao> listarTodasAcaesProducao(){
+    public List<AcaoProducao> listarTodasAcoesProducao(){
         return this.serviceAcaoProducao.listarTodasAcoesProducao();
     }
 
     public Colaborador cadastrarColaborador(String nomeColaborador, String email, String telefone) {
         return this.serviceAcaoProducao.cadastrarColaborador(nomeColaborador, email, telefone);
+    }
+
+    public void cadastrarDoacaoDeItem(String telefoneDoador,
+                                      String nomeDoador,
+                                      boolean isAnonimo,
+                                      String nome,
+                                      int quantidadeEmKg,
+                                      AcaoProducao acaoProducao){
+        this.serviceAcaoProducao.cadastrarDoacaoDeItem(telefoneDoador, nomeDoador, isAnonimo, nome, quantidadeEmKg, acaoProducao);
+    }
+
+
+    public void cadastrarDoacaoDinheiro(String telefone, String nome, boolean isAnonimo, double valor, AcaoProducao acaoSelecionada) {
+        this.serviceAcaoProducao.cadastrarDoacaoDinheiro(telefone, nome, isAnonimo, valor, acaoSelecionada);
     }
 }

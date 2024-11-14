@@ -78,10 +78,16 @@ public class MainScreen extends JFrame {
         // Menu Ação Produção Evento de Comida
         JMenu menuAcaoEventoComida = new JMenu("Ação Produção Evento de Comida");
         JMenuItem itemCadastrarAcaoEvento = new JMenuItem("Cadastrar Ação");
+        JMenuItem itemCadastrarDoacaoItem = new JMenuItem("Cadastrar Doação de Item");
+        JMenuItem itemCadastrarDoacaoDinheiro = new JMenuItem("Cadastrar Doação em dinheiro");
+
         menuAcaoEventoComida.add(itemCadastrarAcaoEvento);
+        menuAcaoEventoComida.add(itemCadastrarDoacaoItem);
+        menuAcaoEventoComida.add(itemCadastrarDoacaoDinheiro);
         menuBar.add(menuAcaoEventoComida);
         itemCadastrarAcaoEvento.addActionListener(actionEvent -> openCadastroAcaoDeProducaoView());
-
+        itemCadastrarDoacaoItem.addActionListener(actionEvent -> openCadastrarDoacaoItemAcaoDeProducaoView());
+        itemCadastrarDoacaoDinheiro.addActionListener(actionEvent -> openCadastrarDoacaoDinheiroParaAcaoDeProducao());
         // Menu Ação Contribuição Direta
         JMenu menuAcaoContribuicaoDireta = new JMenu("Ação Contribuição Direta");
         JMenuItem itemCadastrarAcaoContribuicao = new JMenuItem("Cadastrar Ação");
@@ -109,6 +115,21 @@ public class MainScreen extends JFrame {
             screen.setVisible(true);
         });
     }
+
+    private void openCadastrarDoacaoItemAcaoDeProducaoView () {
+        SwingUtilities.invokeLater(() -> {
+            CadastrarDoacaoItemAcaoDeProducaoView screen = new CadastrarDoacaoItemAcaoDeProducaoView(controllerAcaoProducao);
+            screen.setVisible(true);
+        });
+    }
+
+    private void openCadastrarDoacaoDinheiroParaAcaoDeProducao () {
+        SwingUtilities.invokeLater(() -> {
+            CadastrarDoacaoDinheiroParaAcaoDeProducao screen = new CadastrarDoacaoDinheiroParaAcaoDeProducao(controllerAcaoProducao);
+            screen.setVisible(true);
+        });
+    }
+
 
     private void openCadastroCoordenadorView() {
         SwingUtilities.invokeLater(() -> {

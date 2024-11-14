@@ -43,11 +43,7 @@ public class AcaoProducao extends Acao{
 
     @Override
     public String toString() {
-        return super.toString() +
-                "doacoes=" + doacoes +
-                ", colaboradores=" + colaboradores +
-                ", itens esperados=" + itensEsperados +
-                '}';
+        return super.toString();
     }
 
     @Override
@@ -77,5 +73,28 @@ public class AcaoProducao extends Acao{
 
     public void setItensEsperados(List<ItemEsperado> itensEsperados) {
         this.itensEsperados = itensEsperados;
+    }
+
+    public void subtraiDoItemFaltanteQuantiaDoacao(DoacaoItem doacaoItem){
+        ItemEsperado itemEsperado = itensEsperados.stream()
+                .filter(ie -> ie.getItemFaltante().getNome().equalsIgnoreCase(doacaoItem.getNome()))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Item doado não encontrado nos itens esperados"));
+
+        var itemFaltante = itemEsperado.getItemFaltante();
+        System.out.println(itemFaltante.getNome());
+        if (doacaoItem.getQuantidadeEmKg() > itemFaltante.getQuantidadeEmKg()) {
+            throw new RuntimeException("A doação ultrapassa a quantia de itens que faltam para a realização do evento");
+        }
+        itemFaltante.setQuantidadeEmKg(itemFaltante.getQuantidadeEmKg() - doacaoItem.getQuantidadeEmKg());
+    }
+
+    public void addDoacaoItem(DoacaoItem doacaoItem) {
+        subtraiDoItemFaltanteQuantiaDoacao(doacaoItem);
+        doacoes.add(doacaoItem);
+    }
+
+    public void addDoacaoDinheiro(DoacaoDinheiro doacaoDinheiro) {
+        doacoes.add(doacaoDinheiro);
     }
 }

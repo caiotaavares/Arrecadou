@@ -20,8 +20,9 @@ public class Coordenador {
     @Column(nullable = false)
     private String telefone;
 
-    @ManyToMany(mappedBy = "coordenadores", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "coordenadores", cascade = {CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     private List<Acao> acoesCoordenadas;
+
 
 
     public Coordenador(String nome, String cpf, String telefone) {
@@ -61,6 +62,10 @@ public class Coordenador {
 
     public String getTelefone() {
         return telefone;
+    }
+
+    public void addAcao(Acao acao) {
+        acoesCoordenadas.add(acao);
     }
 
     public void setTelefone(String telefone) {

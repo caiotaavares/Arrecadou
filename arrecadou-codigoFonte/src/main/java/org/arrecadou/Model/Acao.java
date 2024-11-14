@@ -20,7 +20,7 @@ public abstract class Acao {
     private LocalDateTime dataInicio;
     private LocalDateTime dataFim;
 
-    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @JoinTable(
             name = "acao_coordenador",
             joinColumns = @JoinColumn(name = "acao_id"),

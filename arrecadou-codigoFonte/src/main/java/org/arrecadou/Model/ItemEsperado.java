@@ -32,6 +32,30 @@ public class ItemEsperado {
 
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getQuantidadeEmKg() {
+        return quantidadeEmKg;
+    }
+
+    public void setQuantidadeEmKg(int quantidadeEmKg) {
+        this.quantidadeEmKg = quantidadeEmKg;
+    }
+
+    public double getValorKg() {
+        return valorKg;
+    }
+
+    public void setValorKg(double valorKg) {
+        this.valorKg = valorKg;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }

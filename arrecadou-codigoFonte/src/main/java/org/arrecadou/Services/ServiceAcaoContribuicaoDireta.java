@@ -36,7 +36,6 @@ public class ServiceAcaoContribuicaoDireta {
 
     public void addDoacao(String telefoneDoador, String nomeDoador, boolean isAnonimo, double valor, AcaoContribuicaoDireta acao) {
         acao.addDoacao(new DoacaoDinheiro(telefoneDoador, nomeDoador, isAnonimo, valor));
-        System.out.println(new DoacaoDinheiro(telefoneDoador, nomeDoador, isAnonimo, valor));
         this.acaoContribuicaoDiretaRepository.save(acao);
     }
 }
