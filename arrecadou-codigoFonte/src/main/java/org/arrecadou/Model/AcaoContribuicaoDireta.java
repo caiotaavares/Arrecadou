@@ -38,7 +38,6 @@ public class AcaoContribuicaoDireta extends Acao{
     public List<DoacaoDinheiro> getDoacoesDinheiro() {
         return doacoesDinheiro;
     }
-
     public void setDoacoesDinheiro(List<DoacaoDinheiro> doacoesDinheiro) {
         this.doacoesDinheiro = doacoesDinheiro;
     }

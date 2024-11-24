@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-@SuppressWarnings({"WriteOnlyObject"})
+@SuppressWarnings({"WriteOnlyObject", "DuplicatedCode"})
 public class CadastrarDoacaoParaAcaoContribuicaoDiretaView extends JFrame {
     private JTextField telefoneDoadorField;
     private JTextField nomeDoadorField;
@@ -29,7 +29,6 @@ public class CadastrarDoacaoParaAcaoContribuicaoDiretaView extends JFrame {
 
         JPanel acoesPanel = new JPanel(new BorderLayout());
         acoesPanel.add(new JLabel("Selecione uma Ação"), BorderLayout.NORTH);
-
 
         DefaultListModel<AcaoContribuicaoDireta> acoesModel = new DefaultListModel<>();
         controllerAcaoContribuicaoDireta.listarTodasAcoesContribuicaoDireta().forEach(acoesModel::addElement);
@@ -86,7 +85,6 @@ public class CadastrarDoacaoParaAcaoContribuicaoDiretaView extends JFrame {
                 isAnonimo.set(false);
             }
         });
-
 
         cadastrarButton.addActionListener(e -> {
             try {

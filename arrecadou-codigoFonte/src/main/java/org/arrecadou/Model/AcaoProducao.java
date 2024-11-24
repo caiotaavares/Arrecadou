@@ -82,11 +82,20 @@ public class AcaoProducao extends Acao{
                 .orElseThrow(() -> new RuntimeException("Item doado não encontrado nos itens esperados"));
 
         var itemFaltante = itemEsperado.getItemFaltante();
-        System.out.println(itemFaltante.getNome());
+
         if (doacaoItem.getQuantidadeEmKg() > itemFaltante.getQuantidadeEmKg()) {
             throw new RuntimeException("A doação ultrapassa a quantia de itens que faltam para a realização do evento");
         }
         itemFaltante.setQuantidadeEmKg(itemFaltante.getQuantidadeEmKg() - doacaoItem.getQuantidadeEmKg());
+    }
+
+    public double calculaValorAserGastoComRestanteItensFaltantes(){
+        double valorAserGastoRestanteItensFaltantes = 0;
+        for (ItemEsperado itemEsperado : itensEsperados) {
+            double valorAserGastoRestanteItem = itemEsperado.getValorKg() * itemEsperado.getItemFaltante().getQuantidadeEmKg();
+            valorAserGastoRestanteItensFaltantes += valorAserGastoRestanteItem;
+        }
+        return valorAserGastoRestanteItensFaltantes;
     }
 
     public void addDoacaoItem(DoacaoItem doacaoItem) {

@@ -33,6 +33,8 @@ public abstract class Acao {
     private Entidade entidade;
 
 
+
+
     public Acao(Entidade entidade, List<Coordenador> coordenadores, LocalDateTime dataFim, LocalDateTime dataInicio, String objetivoAcao, String descricao, String nome) {
         this.entidade = entidade;
         this.coordenadores = coordenadores;
@@ -106,6 +108,7 @@ public abstract class Acao {
     public void setDataFim(LocalDateTime dataFim) {
         this.dataFim = dataFim;
     }
+
 
     @Override
     public boolean equals(Object o) {
