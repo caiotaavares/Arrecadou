@@ -33,46 +33,30 @@ public class AcaoProducao extends Acao{
 
     }
 
-    public List<Doacao> getDoacoes() {
-        return doacoes;
+    public double calcularLucroReal(double valorTotalDasVendas){
+        double valorArrecadadoEmDinheiro = calcularValorTotalArrecadadoEmDinheiro();
+        double valorGastoPraComprarItensFaltantes = calculaValorAserGastoComRestanteItensFaltantes();
+        return (valorTotalDasVendas + valorArrecadadoEmDinheiro) - valorGastoPraComprarItensFaltantes;
     }
 
-    public void setDoacoes(List<Doacao> doacoes) {
-        this.doacoes = doacoes;
+    private double calcularTotalDosItensEsperados(){
+        double valorTotalItensEsperados = 0;
+        for (ItemEsperado itemEsperado : itensEsperados) {
+            valorTotalItensEsperados += itemEsperado.calculaSubTotal();
+        }
+        return valorTotalItensEsperados;
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
+    public double calcularLucroCasoNaoTivesseNenhumaDoacao(double valorTotalDasVendas){
+        return valorTotalDasVendas - calcularTotalDosItensEsperados();
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof AcaoProducao that)) return false;
-        if (!super.equals(o)) return false;
-        return Objects.equals(getDoacoes(), that.getDoacoes()) && Objects.equals(getColaboradores(), that.getColaboradores());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), getDoacoes(), getColaboradores());
-    }
-
-    public List<Colaborador> getColaboradores() {
-        return colaboradores;
-    }
-
-    public void setColaboradores(List<Colaborador> colaboradores) {
-        this.colaboradores = colaboradores;
-    }
-
-    public List<ItemEsperado> getItensEsperados() {
-        return itensEsperados;
-    }
-
-    public void setItensEsperados(List<ItemEsperado> itensEsperados) {
-        this.itensEsperados = itensEsperados;
+    public double calcularValorTotalArrecadadoEmDinheiro(){
+        double total = 0;
+        for (Doacao doacao : doacoes) {
+            if (doacao instanceof DoacaoDinheiro) total += ((DoacaoDinheiro)doacao).getValor();
+        }
+        return total;
     }
 
     public void subtraiDoItemFaltanteQuantiaDoacao(DoacaoItem doacaoItem){
@@ -105,5 +89,47 @@ public class AcaoProducao extends Acao{
 
     public void addDoacaoDinheiro(DoacaoDinheiro doacaoDinheiro) {
         doacoes.add(doacaoDinheiro);
+    }
+
+    public List<Doacao> getDoacoes() {
+        return doacoes;
+    }
+
+    public void setDoacoes(List<Doacao> doacoes) {
+        this.doacoes = doacoes;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getDoacoes(), getColaboradores());
+    }
+
+    public List<Colaborador> getColaboradores() {
+        return colaboradores;
+    }
+
+    public void setColaboradores(List<Colaborador> colaboradores) {
+        this.colaboradores = colaboradores;
+    }
+
+    public List<ItemEsperado> getItensEsperados() {
+        return itensEsperados;
+    }
+
+    public void setItensEsperados(List<ItemEsperado> itensEsperados) {
+        this.itensEsperados = itensEsperados;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AcaoProducao that)) return false;
+        if (!super.equals(o)) return false;
+        return Objects.equals(getDoacoes(), that.getDoacoes()) && Objects.equals(getColaboradores(), that.getColaboradores());
     }
 }

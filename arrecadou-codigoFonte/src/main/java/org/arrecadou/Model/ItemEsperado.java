@@ -28,6 +28,10 @@ public class ItemEsperado {
         this.setItemFaltante(new ItemFaltante(nome, quantidadeEmKg));
     }
 
+    public double calculaSubTotal() {
+        return this.valorKg * this.quantidadeEmKg;
+    }
+
     public ItemEsperado() {
 
     }

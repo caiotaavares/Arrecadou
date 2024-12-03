@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class ServiceGeradorRelatoriosPDF {
 
-    public void gerarRelatorioPDF(Acao acao, String caminhoRelatorio) {
+    public void gerarRelatorioPDF(Acao acao, String caminhoRelatorio, double valorTotalVendas) {
         caminhoRelatorio = caminhoRelatorio.concat("\\" + acao.getNome()+".pdf");
         try (PDDocument document = new PDDocument()) {
             PDPage page = new PDPage();
@@ -23,7 +23,7 @@ public class ServiceGeradorRelatoriosPDF {
                 if (acao instanceof AcaoContribuicaoDireta) {
                     gerarRelatorioPDFacaoContribDireta(contentStream, (AcaoContribuicaoDireta) acao);
                 } else{
-                    gerarRelatorioPDFacaoProducao(contentStream, (AcaoProducao) acao);
+                    gerarRelatorioPDFacaoProducao(contentStream, (AcaoProducao) acao, valorTotalVendas);
                 }
             }
             document.save(caminhoRelatorio);
@@ -62,27 +62,46 @@ public class ServiceGeradorRelatoriosPDF {
         contentStream.newLineAtOffset(0, -30);
         contentStream.showText("Valor monetário arrecadado: R$ " + acao.calcularValorTotalArrecadado());
         contentStream.newLineAtOffset(0, -30);
-        adicionarDoadores(contentStream, acao);
+        adicionarDoacoes(contentStream, acao);
         contentStream.endText();
     }
 
-    private void gerarRelatorioPDFacaoProducao(PDPageContentStream contentStream, AcaoProducao acao) throws IOException {
+    private void gerarRelatorioPDFacaoProducao(PDPageContentStream contentStream, AcaoProducao acao, double valorTotalVendas) throws IOException {
         contentStream.newLineAtOffset(0, -30);
         contentStream.showText("Colaboradores: ");
-
+        contentStream.newLine();
         for (Colaborador colaborador : acao.getColaboradores()) {
             contentStream.showText("Nome: " + colaborador.getNome() + " - " + "Telefone: " + colaborador.getTelefone());
             contentStream.newLine();
         }
+        contentStream.newLineAtOffset(0, -30);
+
+        contentStream.showText("Itens Esperados: ");
+        contentStream.newLine();
+        for (ItemEsperado item : acao.getItensEsperados()) {
+            contentStream.showText(
+                    "Nome: " + item.getNome() + " - " + "Quantidade " + item.getQuantidadeEmKg()+ " KG" + " - " + "Valor do KG: " + item.getValorKg() + " R$"
+            );
+            contentStream.newLine();
+        }
 
         contentStream.newLineAtOffset(0, -30);
-        contentStream.showText("Valor gasto pra comprar o que faltou dos itens: " + acao.calculaValorAserGastoComRestanteItensFaltantes());
+        contentStream.showText("Valor total em vendas: R$ " + valorTotalVendas);
+        contentStream.newLine();
+        contentStream.showText("Valor gasto pra comprar o que faltou dos itens: R$ " + acao.calculaValorAserGastoComRestanteItensFaltantes());
+        contentStream.newLine();
+        contentStream.showText("Lucro real (com as doações em dinheiro e de item): R$ " + acao.calcularLucroReal(valorTotalVendas));
+        contentStream.newLine();
+        contentStream.showText("Lucro caso não houvesse nenhuma doação (nem de dinheiro, nem de item): R$ "
+                + acao.calcularLucroCasoNaoTivesseNenhumaDoacao(valorTotalVendas));
+        contentStream.newLine();
+        contentStream.showText("Valor total arrecadado com as doações em dinheiro: R$ " + acao.calcularValorTotalArrecadadoEmDinheiro());
         contentStream.newLineAtOffset(0, -30);
-        adicionarDoadores(contentStream, acao);
+        adicionarDoacoes(contentStream, acao);
         contentStream.endText();
     }
 
-    private void adicionarDoadores(PDPageContentStream contentStream, Acao acao) throws IOException {
+    private void adicionarDoacoes(PDPageContentStream contentStream, Acao acao) throws IOException {
         contentStream.showText("Doações: ");
         contentStream.newLine();
         List<? extends Doacao> doacoes = acao instanceof AcaoContribuicaoDireta

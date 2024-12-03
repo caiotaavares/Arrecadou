@@ -14,10 +14,10 @@ import java.util.List;
 
 public class RelatorioFinalAcoes extends JFrame {
 
-
     private final ControllerRelatorios controllerRelatorios;
     private final ControllerAcaoProducao controllerAcaoProducao;
     private final ControllerAcaoContribuicaoDireta controllerAcaoContribuicao;
+
     public RelatorioFinalAcoes(
             ControllerRelatorios controllerRelatorios,
             ControllerAcaoProducao controllerAcaoProducao,
@@ -40,9 +40,7 @@ public class RelatorioFinalAcoes extends JFrame {
         JPanel listagemPanel = new JPanel(new BorderLayout());
         listagemPanel.add(new JLabel("Selecione uma ação para gerar o relatório:"), BorderLayout.NORTH);
 
-
         DefaultListModel<Object> acoesModel = new DefaultListModel<>();
-
 
         List<AcaoContribuicaoDireta> contribuicoesDiretas = controllerAcaoContribuicao.listarTodasAcoesContribuicaoDireta();
         contribuicoesDiretas.forEach(acoesModel::addElement);
@@ -65,10 +63,19 @@ public class RelatorioFinalAcoes extends JFrame {
         pastaPanel.add(pastaField, BorderLayout.CENTER);
         pastaPanel.add(selecionarPastaButton, BorderLayout.EAST);
 
+        // Campo para o valor total das vendas
+        JPanel valorTotalPanel = new JPanel(new BorderLayout());
+        JLabel valorTotalLabel = new JLabel("Valor Total das Vendas: ");
+        JTextField valorTotalField = new JTextField(10);
+        valorTotalField.setEditable(true);
+        valorTotalPanel.add(valorTotalLabel, BorderLayout.WEST);
+        valorTotalPanel.add(valorTotalField, BorderLayout.CENTER);
+
         // Botão para gerar relatório
         JButton gerarRelatorioButton = new JButton("Gerar Relatório");
         JPanel botoesPanel = new JPanel(new BorderLayout());
         botoesPanel.add(pastaPanel, BorderLayout.NORTH);
+        botoesPanel.add(valorTotalPanel, BorderLayout.CENTER);
         botoesPanel.add(gerarRelatorioButton, BorderLayout.SOUTH);
 
         add(botoesPanel, BorderLayout.SOUTH);
@@ -87,6 +94,7 @@ public class RelatorioFinalAcoes extends JFrame {
         gerarRelatorioButton.addActionListener(e -> {
             Acao acaoSelecionada = (Acao) acoesList.getSelectedValue();
             String caminhoPasta = pastaField.getText();
+            String valorTotal = valorTotalField.getText();
 
             if (acaoSelecionada == null) {
                 JOptionPane.showMessageDialog(this, "Selecione uma ação para gerar o relatório!", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -98,8 +106,14 @@ public class RelatorioFinalAcoes extends JFrame {
                 return;
             }
 
+            if (valorTotal.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Digite o valor total das vendas!", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
             try {
-                controllerRelatorios.gerarRelatorioPDF(acaoSelecionada, caminhoPasta);
+                double valorTotalVendas = Double.parseDouble(valorTotalField.getText());
+                controllerRelatorios.gerarRelatorioPDF(acaoSelecionada, caminhoPasta, valorTotalVendas);
                 JOptionPane.showMessageDialog(this, "Relatório gerado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception ex) {
                 ex.printStackTrace();

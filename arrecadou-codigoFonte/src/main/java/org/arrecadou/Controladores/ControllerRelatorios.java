@@ -14,7 +14,7 @@ public class ControllerRelatorios {
         this.serviceGeradorRelatoriosPDF = serviceGeradorRelatoriosPDF;
     }
 
-    public void gerarRelatorioPDF(Acao acao, String caminho){
-        serviceGeradorRelatoriosPDF.gerarRelatorioPDF(acao, caminho);
+    public void gerarRelatorioPDF(Acao acao, String caminho, double valorTotalVendas){
+        serviceGeradorRelatoriosPDF.gerarRelatorioPDF(acao, caminho, valorTotalVendas);
     }
 }

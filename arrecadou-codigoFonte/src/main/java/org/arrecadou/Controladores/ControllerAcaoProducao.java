@@ -4,7 +4,6 @@ import org.arrecadou.Model.*;
 import org.arrecadou.Services.ServiceAcaoProducao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
 import java.time.LocalDateTime;
 import java.util.List;
 

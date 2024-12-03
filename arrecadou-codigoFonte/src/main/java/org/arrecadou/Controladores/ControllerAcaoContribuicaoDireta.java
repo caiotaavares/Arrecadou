@@ -1,6 +1,5 @@
 package org.arrecadou.Controladores;
 
-import org.arrecadou.Model.Acao;
 import org.arrecadou.Model.AcaoContribuicaoDireta;
 import org.arrecadou.Model.Coordenador;
 import org.arrecadou.Services.ServiceAcaoContribuicaoDireta;
@@ -37,9 +36,5 @@ public class ControllerAcaoContribuicaoDireta {
 
     public void addDoacao(String telefoneDoador, String nomeDoador, boolean isAnonimo , double valor, AcaoContribuicaoDireta acao) {
         this.serviceAcao.addDoacao(telefoneDoador, nomeDoador, isAnonimo, valor, acao);
-    }
-
-    public void gerarRelatorioPDF(AcaoContribuicaoDireta acaoSelecionada, String caminhoRelatorio) {
-        this.geradorRelatoriosPDF.gerarRelatorioPDF(acaoSelecionada, caminhoRelatorio);
     }
 }
