@@ -18,7 +18,7 @@ public class JpaConfig {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setURL("jdbc:mysql://localhost:3306/arrecadou");
         dataSource.setUser("root");
-        dataSource.setPassword("senha");
+        dataSource.setPassword("root123");
         return dataSource;
     }
 
