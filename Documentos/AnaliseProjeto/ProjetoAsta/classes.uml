@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.arrecadou.Services</OriginalElement>
+  <nodes>
+    <node x="1081.7535389449115" y="996.1207982807839">org.arrecadou.View.CadastrarDoacaoItemAcaoDeProducaoView</node>
+    <node x="2250.303034269051" y="1258.044391444485">org.arrecadou.View.CadastrarDoacaoDinheiroParaAcaoDeProducao</node>
+    <node x="2152.6546207175966" y="817.9196682159078">org.arrecadou.Repositories.AcaoProducaoRepository</node>
+    <node x="3042.1118739909757" y="889.2863363827465">org.arrecadou.Services.ServiceAcaoProducao</node>
+    <node x="1075.0614581134964" y="491.19904338259704">org.arrecadou.Model.AcaoContribuicaoDireta</node>
+    <node x="1552.298644580798" y="519.3898109192612">org.arrecadou.Model.DoacaoDinheiro</node>
+    <node x="594.7962356443247" y="1012.7779302767686">org.arrecadou.Controladores.ControllerAcaoContribuicaoDireta</node>
+    <node x="3000.8991399186643" y="1406.2217415050436">org.arrecadou.View.CadastrarEntidade</node>
+    <node x="741.1864858681528" y="330.4002608499001">org.arrecadou.Model.Coordenador</node>
+    <node x="1075.9546328728645" y="692.3107140467574">org.arrecadou.Services.ServiceAcaoContribuicaoDireta</node>
+    <node x="3700.228023928015" y="458.13017396361033">org.arrecadou.Services.ServiceEntidade</node>
+    <node x="479.3027713057899" y="736.3040599103526">org.arrecadou.Repositories.CoordenadorRepository</node>
+    <node x="2353.4002858367644" y="424.4533085690209">org.arrecadou.Model.Doacao</node>
+    <node x="3960.7047114250454" y="898.0682768639958">org.arrecadou.Controladores.ControllerEntidade</node>
+    <node x="2358.1158896829043" y="939.1254789816111">org.arrecadou.Repositories.EntidadeRepository</node>
+    <node x="2706.263891310186" y="413.7686374212362">org.arrecadou.Model.Colaborador</node>
+    <node x="3136.7012314818217" y="356.45268203707735">org.arrecadou.Model.ItemEsperado</node>
+    <node x="58.697243893352464" y="973.5418953204666">org.arrecadou.View.CadastroAcaoContribuicaoDiretaView</node>
+    <node x="2474.6475309246207" y="706.5244686231138">org.arrecadou.Model.AcaoProducao</node>
+    <node x="2520.735279006542" y="-13.789329717184188">org.arrecadou.Model.Entidade</node>
+    <node x="217.4382294504211" y="824.7579186232114">org.arrecadou.Services.ServiceCoordenador</node>
+    <node x="2051.155757566701" y="1535.7952589605354">org.arrecadou.Config.AppConfig</node>
+    <node x="3312.082263457872" y="1134.3062758349208">org.arrecadou.View.MainScreen</node>
+    <node x="2138.3561391232633" y="1066.9745532605575">org.arrecadou.Controladores.ControllerAcaoProducao</node>
+    <node x="1619.6857978450505" y="882.6688021841617">org.arrecadou.View.CadastrarAcaoDeProducaoView</node>
+    <node x="553.7483516273854" y="1288.484226879955">org.arrecadou.View.CadastrarDoacaoParaAcaoContribuicaoDiretaView</node>
+    <node x="-219.45599640808058" y="641.223332693728">org.arrecadou.View.CadastroCoordenadorView</node>
+    <node x="2864.048397886146" y="1265.0547760248367">org.arrecadou.Config.JpaConfig</node>
+    <node x="145.86545008904338" y="492.1284857614775">org.arrecadou.Controladores.ControllerCoordenador</node>
+    <node x="3565.5549474422614" y="749.7978645295705">org.arrecadou.Controladores.ControllerRelatorios</node>
+    <node x="3389.638436725237" y="625.8639956358444">org.arrecadou.Services.ServiceGeradorRelatoriosPDF</node>
+    <node x="2965.608709333314" y="661.3674965998881">org.arrecadou.Model.DoacaoItem</node>
+    <node x="2972.7450901768625" y="135.04618550133495">org.arrecadou.Model.ItemFaltante</node>
+    <node x="2549.815428759337" y="1027.8878234540496">org.arrecadou.View.RelatorioFinalAcoes</node>
+    <node x="1185.7884156912326" y="136.5072382719844">org.arrecadou.Model.Acao</node>
+    <node x="1739.690746014316" y="792.2505526572171">org.arrecadou.Repositories.AcaoContribuicaoDiretaRepository</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.arrecadou.View.MainScreen" target="org.arrecadou.Controladores.ControllerAcaoProducao" relationship="TO_ONE">
+      <point x="-234.00026345787228" y="-7.806275834920825" />
+      <point x="2734.803" y="1230.5" />
+      <point x="2734.803" y="1181.388" />
+      <point x="2520.0" y="1181.388" />
+      <point x="2520.0" y="1110.975" />
+      <point x="174.9998608767371" y="4.467394423954829E-4" />
+    </edge>
+    <edge source="org.arrecadou.Services.ServiceAcaoProducao" target="org.arrecadou.Model.DoacaoDinheiro" relationship="CREATE">
+      <point x="-230.99987399097563" y="1.3386636172534736" />
+      <point x="2924.148" y="946.625" />
+      <point x="2924.148" y="682.0" />
+      <point x="1727.799" y="682.0" />
+      <point x="3.5541920192372345E-4" y="56.000189080738835" />
+    </edge>
+    <edge source="org.arrecadou.View.MainScreen" target="org.arrecadou.View.CadastrarDoacaoParaAcaoContribuicaoDiretaView" relationship="CREATE">
+      <point x="29.99973654212772" y="104.0" />
+      <point x="3576.082" y="1766.7217415050436" />
+      <point x="787.7483516273854" y="1766.7217415050436" />
+      <point x="0.0" y="92.0" />
+    </edge>
+    <edge source="org.arrecadou.Services.ServiceEntidade" target="org.arrecadou.Repositories.EntidadeRepository" relationship="TO_ONE">
+      <point x="-2.392801479800255E-5" y="43.99982603638966" />
+      <point x="3848.228" y="581.953" />
+      <point x="3144.201" y="581.953" />
+      <point x="3144.201" y="635.0" />
+      <point x="2457.116" y="635.0" />
+      <point x="1.1031709573217086E-4" y="-14.000478981611082" />
+    </edge>
+    <edge source="org.arrecadou.View.CadastrarDoacaoItemAcaoDeProducaoView" target="org.arrecadou.Controladores.ControllerAcaoProducao" relationship="TO_ONE">
+      <point x="4.6105508840810216E-4" y="116.0002017192162" />
+      <point x="1320.254" y="1616.295" />
+      <point x="2734.803" y="1616.295" />
+      <point x="2734.803" y="1181.388" />
+      <point x="2520.0" y="1181.388" />
+      <point x="2520.0" y="1110.975" />
+      <point x="174.9998608767371" y="4.467394423954829E-4" />
+    </edge>
+    <edge source="org.arrecadou.Controladores.ControllerRelatorios" target="org.arrecadou.Services.ServiceGeradorRelatoriosPDF" relationship="TO_ONE">
+      <point x="5.255773839962785E-5" y="-43.99986452957046" />
+      <point x="3775.055" y="720.0" />
+      <point x="3527.638" y="720.0" />
+      <point x="-4.3672523725035717E-4" y="31.500004364155643" />
+    </edge>
+    <edge source="org.arrecadou.Services.ServiceAcaoContribuicaoDireta" target="org.arrecadou.Model.DoacaoDinheiro" relationship="CREATE">
+      <point x="239.0003671271354" y="-14.99971404675739" />
+      <point x="2259.5" y="733.311" />
+      <point x="2259.5" y="682.0" />
+      <point x="1727.799" y="682.0" />
+      <point x="3.5541920192372345E-4" y="56.000189080738835" />
+    </edge>
+    <edge source="org.arrecadou.View.MainScreen" target="org.arrecadou.Controladores.ControllerAcaoContribuicaoDireta" relationship="TO_ONE">
+      <point x="-2.634578722791048E-4" y="103.99972416507921" />
+      <point x="3546.082" y="1374.806" />
+      <point x="2871.548" y="1374.806" />
+      <point x="2871.548" y="1499.0" />
+      <point x="1504.0" y="1499.0" />
+      <point x="1504.0" y="1260.0" />
+      <point x="807.296" y="1260.0" />
+      <point x="-2.35644324675377E-4" y="68.00006972323138" />
+    </edge>
+    <edge source="org.arrecadou.View.CadastrarDoacaoParaAcaoContribuicaoDiretaView" target="org.arrecadou.Controladores.ControllerAcaoContribuicaoDireta" relationship="TO_ONE">
+      <point x="-3.5162738538474514E-4" y="-92.00022687995511" />
+      <point x="787.748" y="1260.0" />
+      <point x="807.296" y="1260.0" />
+      <point x="-2.35644324675377E-4" y="68.00006972323138" />
+    </edge>
+    <edge source="org.arrecadou.Controladores.ControllerEntidade" target="org.arrecadou.Services.ServiceEntidade" relationship="TO_ONE">
+      <point x="0.0" y="-44.0" />
+      <point x="4100.704711425045" y="502.13017396361033" />
+      <point x="148.0" y="0.0" />
+    </edge>
+    <edge source="org.arrecadou.Model.AcaoProducao" target="org.arrecadou.Model.ItemEsperado" relationship="TO_MANY">
+      <point x="-14.999530924620558" y="-80.0" />
+      <point x="2668.148" y="381.269" />
+      <point x="-130.0" y="-79.18368203707735" />
+    </edge>
+    <edge source="org.arrecadou.View.MainScreen" target="org.arrecadou.Controladores.ControllerCoordenador" relationship="TO_ONE">
+      <point x="-2.634578722791048E-4" y="-104.00027583492079" />
+      <point x="3546.082" y="829.867" />
+      <point x="2909.148" y="829.867" />
+      <point x="2909.148" y="662.0" />
+      <point x="312.865" y="662.0" />
+      <point x="-4.5008904337606737E-4" y="43.999514238522465" />
+    </edge>
+    <edge source="org.arrecadou.Model.AcaoProducao" target="org.arrecadou.Model.Colaborador" relationship="TO_MANY">
+      <point x="155.61636038556526" y="-80.0" />
+      <point x="0.0" y="92.00000000000006" />
+    </edge>
+    <edge source="org.arrecadou.View.MainScreen" target="org.arrecadou.View.CadastroCoordenadorView" relationship="CREATE">
+      <point x="234.0" y="-45.0" />
+      <point x="4160.705" y="1193.3062758349208" />
+      <point x="4160.705" y="1811.7217415050436" />
+      <point x="-31.95599640808058" y="1811.7217415050436" />
+      <point x="0.0" y="80.0" />
+    </edge>
+    <edge source="org.arrecadou.Controladores.ControllerAcaoProducao" target="org.arrecadou.Services.ServiceAcaoProducao" relationship="TO_ONE">
+      <point x="0.0" y="44.0" />
+      <point x="2313.3561391232633" y="1211.388" />
+      <point x="3273.1118739909757" y="1211.388" />
+      <point x="0.0" y="56.0" />
+    </edge>
+    <edge source="org.arrecadou.Controladores.ControllerAcaoContribuicaoDireta" target="org.arrecadou.Services.ServiceCoordenador" relationship="TO_ONE">
+      <point x="-2.35644324675377E-4" y="-67.99993027676862" />
+      <point x="807.296" y="944.0" />
+      <point x="391.438" y="944.0" />
+      <point x="-2.2945042110222857E-4" y="44.00008137678867" />
+    </edge>
+    <edge source="org.arrecadou.View.CadastrarDoacaoDinheiroParaAcaoDeProducao" target="org.arrecadou.Controladores.ControllerAcaoProducao" relationship="TO_ONE">
+      <point x="-2.9470342690506186" y="-92.00039144448488" />
+      <point x="2480.856" y="1172.475" />
+      <point x="2520.0" y="1172.475" />
+      <point x="2520.0" y="1110.975" />
+      <point x="174.9998608767371" y="4.467394423954829E-4" />
+    </edge>
+    <edge source="org.arrecadou.View.CadastroAcaoContribuicaoDiretaView" target="org.arrecadou.Controladores.ControllerAcaoContribuicaoDireta" relationship="TO_ONE">
+      <point x="-2.438933524642195E-4" y="128.00010467953337" />
+      <point x="275.697" y="1260.0" />
+      <point x="807.296" y="1260.0" />
+      <point x="-2.35644324675377E-4" y="68.00006972323138" />
+    </edge>
+    <edge source="org.arrecadou.View.MainScreen" target="org.arrecadou.Controladores.ControllerRelatorios" relationship="TO_ONE">
+      <point x="-38.08226345787216" y="-104.00027583492079" />
+      <point x="3508.0" y="1068.0" />
+      <point x="3775.055" y="1068.0" />
+      <point x="5.255773839962785E-5" y="44.00013547042954" />
+    </edge>
+    <edge source="org.arrecadou.Services.ServiceAcaoContribuicaoDireta" target="org.arrecadou.Model.AcaoContribuicaoDireta" relationship="CREATE">
+      <point x="-31.893174759368208" y="-56.0" />
+      <point x="0.0" y="55.99999999999994" />
+    </edge>
+    <edge source="org.arrecadou.Model.Acao" target="org.arrecadou.Model.Entidade" relationship="TO_ONE">
+      <point x="211.0" y="-129.2962382719844" />
+      <point x="-193.0" y="-14.999670282815828" />
+    </edge>
+    <edge source="org.arrecadou.Services.ServiceAcaoProducao" target="org.arrecadou.Model.DoacaoItem" relationship="CREATE">
+      <point x="-135.50316465766173" y="-56.0" />
+      <point x="0.0" y="68.0" />
+    </edge>
+    <edge source="org.arrecadou.Services.ServiceEntidade" target="org.arrecadou.Model.Entidade" relationship="CREATE">
+      <point x="0.0" y="-44.0" />
+      <point x="3848.228023928015" y="117.54618550133495" />
+      <point x="193.0" y="-44.664484781480866" />
+    </edge>
+    <edge source="org.arrecadou.View.CadastrarAcaoDeProducaoView" target="org.arrecadou.Controladores.ControllerAcaoProducao" relationship="TO_ONE">
+      <point x="229.00020215494942" y="-129.19380218416165" />
+      <point x="2520.0" y="1049.475" />
+      <point x="2520.0" y="1110.975" />
+      <point x="174.9998608767371" y="4.467394423954829E-4" />
+    </edge>
+    <edge source="org.arrecadou.View.RelatorioFinalAcoes" target="org.arrecadou.Controladores.ControllerAcaoProducao" relationship="TO_ONE">
+      <point x="-215.50042875933696" y="1.7654595046678878E-4" />
+      <point x="2520.0" y="1095.888" />
+      <point x="2520.0" y="1110.975" />
+      <point x="174.9998608767371" y="4.467394423954829E-4" />
+    </edge>
+    <edge source="org.arrecadou.Controladores.ControllerCoordenador" target="org.arrecadou.Services.ServiceCoordenador" relationship="TO_ONE">
+      <point x="-127.92745008904338" y="43.999514238522465" />
+      <point x="184.938" y="944.0" />
+      <point x="391.438" y="944.0" />
+      <point x="-2.2945042110222857E-4" y="44.00008137678867" />
+    </edge>
+    <edge source="org.arrecadou.View.MainScreen" target="org.arrecadou.View.RelatorioFinalAcoes" relationship="CREATE">
+      <point x="-234.0" y="-96.5" />
+      <point x="215.5" y="45.91845238087126" />
+    </edge>
+    <edge source="org.arrecadou.Model.Entidade" target="org.arrecadou.Model.Acao" relationship="TO_MANY">
+      <point x="-193.00027900654186" y="3.2971718418650653E-4" />
+      <point x="1683.0" y="162.211" />
+      <point x="1683.0" y="434.4" />
+      <point x="1396.788" y="434.4" />
+      <point x="-4.15691232547033E-4" y="139.9997617280156" />
+    </edge>
+    <edge source="org.arrecadou.View.RelatorioFinalAcoes" target="org.arrecadou.Controladores.ControllerAcaoContribuicaoDireta" relationship="TO_ONE">
+      <point x="-4.287593369554088E-4" y="68.00017654595035" />
+      <point x="2765.315" y="1499.0" />
+      <point x="1504.0" y="1499.0" />
+      <point x="1504.0" y="1260.0" />
+      <point x="807.296" y="1260.0" />
+      <point x="-2.35644324675377E-4" y="68.00006972323138" />
+    </edge>
+    <edge source="org.arrecadou.Services.ServiceCoordenador" target="org.arrecadou.Repositories.CoordenadorRepository" relationship="TO_ONE">
+      <point x="166.5" y="-44.0" />
+      <point x="-34.36454185536883" y="14.0" />
+    </edge>
+    <edge source="org.arrecadou.Model.ItemEsperado" target="org.arrecadou.Model.ItemFaltante" relationship="TO_ONE">
+      <point x="-107.5" y="-104.0" />
+      <point x="85.95614130495915" y="80.0" />
+    </edge>
+    <edge source="org.arrecadou.Services.ServiceAcaoContribuicaoDireta" target="org.arrecadou.Repositories.AcaoContribuicaoDiretaRepository" relationship="TO_ONE">
+      <point x="239.0" y="48.5" />
+      <point x="-158.0" y="-9.439838610459674" />
+    </edge>
+    <edge source="org.arrecadou.Model.AcaoProducao" target="org.arrecadou.Model.Acao" relationship="GENERALIZATION">
+      <point x="4.6907537944207434E-4" y="-80.00046862311376" />
+      <point x="2683.148" y="396.269" />
+      <point x="1922.5" y="396.269" />
+      <point x="1922.5" y="486.0" />
+      <point x="1519.5" y="486.0" />
+      <point x="122.71158430876744" y="139.9997617280156" />
+    </edge>
+    <edge source="org.arrecadou.Model.Coordenador" target="org.arrecadou.Model.Acao" relationship="TO_MANY">
+      <point x="135.49951413184726" y="-2.608499001439668E-4" />
+      <point x="1396.788" y="434.4" />
+      <point x="-4.15691232547033E-4" y="139.9997617280156" />
+    </edge>
+    <edge source="org.arrecadou.Model.Acao" target="org.arrecadou.Model.Coordenador" relationship="TO_MANY">
+      <point x="-211.0" y="132.50000000000003" />
+      <point x="135.5" y="-25.3930225779157" />
+    </edge>
+    <edge source="org.arrecadou.View.MainScreen" target="org.arrecadou.View.CadastrarAcaoDeProducaoView" relationship="CREATE">
+      <point x="-234.0" y="-41.918275834920905" />
+      <point x="229.0" y="17.719197815838243" />
+    </edge>
+    <edge source="org.arrecadou.View.CadastroAcaoContribuicaoDiretaView" target="org.arrecadou.Controladores.ControllerCoordenador" relationship="TO_ONE">
+      <point x="-75.75924389335246" y="-127.99989532046652" />
+      <point x="199.938" y="662.0" />
+      <point x="312.865" y="662.0" />
+      <point x="-4.5008904337606737E-4" y="43.999514238522465" />
+    </edge>
+    <edge source="org.arrecadou.Model.AcaoProducao" target="org.arrecadou.Model.Doacao" relationship="TO_MANY">
+      <point x="-201.0" y="-80.0" />
+      <point x="4.7472450878562995" y="92.0" />
+    </edge>
+    <edge source="org.arrecadou.Model.DoacaoDinheiro" target="org.arrecadou.Model.Doacao" relationship="GENERALIZATION">
+      <point x="-14.999644580798076" y="56.000189080738835" />
+      <point x="1712.799" y="708.0" />
+      <point x="2375.155" y="708.0" />
+      <point x="-102.2452858367642" y="91.99969143097906" />
+    </edge>
+    <edge source="org.arrecadou.Model.DoacaoItem" target="org.arrecadou.Model.Doacao" relationship="GENERALIZATION">
+      <point x="-164.29370933331393" y="67.99950340011185" />
+      <point x="2973.315" y="896.786" />
+      <point x="2415.155" y="896.786" />
+      <point x="2415.155" y="708.0" />
+      <point x="2375.155" y="708.0" />
+      <point x="-102.2452858367642" y="91.99969143097906" />
+    </edge>
+    <edge source="org.arrecadou.View.MainScreen" target="org.arrecadou.View.CadastroAcaoContribuicaoDiretaView" relationship="CREATE">
+      <point x="14.999736542127721" y="104.0" />
+      <point x="3561.082" y="1751.7217415050436" />
+      <point x="260.697" y="1751.7217415050436" />
+      <point x="-15.000243893352462" y="128.0000000000001" />
+    </edge>
+    <edge source="org.arrecadou.Services.ServiceAcaoProducao" target="org.arrecadou.Model.ItemEsperado" relationship="CREATE">
+      <point x="68.99712600902421" y="-56.0" />
+      <point x="75.40776851817827" y="104.0" />
+    </edge>
+    <edge source="org.arrecadou.Services.ServiceAcaoProducao" target="org.arrecadou.Model.AcaoProducao" relationship="CREATE">
+      <point x="-231.0" y="54.339142598864555" />
+      <point x="2683.1475309246207" y="999.6254789816111" />
+      <point x="0.0" y="80.0" />
+    </edge>
+    <edge source="org.arrecadou.Controladores.ControllerAcaoContribuicaoDireta" target="org.arrecadou.Services.ServiceAcaoContribuicaoDireta" relationship="TO_ONE">
+      <point x="212.5" y="0.0" />
+      <point x="1054.2483516273855" y="1080.7779302767685" />
+      <point x="1054.2483516273855" y="748.3107140467574" />
+      <point x="-239.0" y="0.0" />
+    </edge>
+    <edge source="org.arrecadou.Services.ServiceAcaoContribuicaoDireta" target="org.arrecadou.Repositories.EntidadeRepository" relationship="TO_ONE">
+      <point x="239.0003671271354" y="2.859532426100486E-4" />
+      <point x="2390.155" y="748.311" />
+      <point x="2390.155" y="635.0" />
+      <point x="2457.116" y="635.0" />
+      <point x="1.1031709573217086E-4" y="-14.000478981611082" />
+    </edge>
+    <edge source="org.arrecadou.View.CadastrarEntidade" target="org.arrecadou.Controladores.ControllerEntidade" relationship="TO_ONE">
+      <point x="146.99986008133556" y="2.5849495636975917E-4" />
+      <point x="3797.582" y="1570.222" />
+      <point x="3797.582" y="1113.0" />
+      <point x="4100.705" y="1113.0" />
+      <point x="2.885749545384897E-4" y="43.99972313600415" />
+    </edge>
+    <edge source="org.arrecadou.View.MainScreen" target="org.arrecadou.View.CadastrarDoacaoDinheiroParaAcaoDeProducao" relationship="CREATE">
+      <point x="-234.0" y="101.0" />
+      <point x="233.5" y="-10.738115609564147" />
+    </edge>
+    <edge source="org.arrecadou.Model.ItemEsperado" target="org.arrecadou.Model.ItemFaltante" relationship="CREATE">
+      <point x="-122.5" y="-104.0" />
+      <point x="70.95614130495915" y="80.0" />
+    </edge>
+    <edge source="org.arrecadou.Services.ServiceCoordenador" target="org.arrecadou.Model.Coordenador" relationship="CREATE">
+      <point x="174.0" y="-9.733450000097605" />
+      <point x="876.6864858681528" y="859.0244686231138" />
+      <point x="0.0" y="104.0" />
+    </edge>
+    <edge source="org.arrecadou.View.MainScreen" target="org.arrecadou.Controladores.ControllerEntidade" relationship="TO_ONE">
+      <point x="89.91773654212784" y="-104.00027583492079" />
+      <point x="3636.0" y="1113.0" />
+      <point x="4100.705" y="1113.0" />
+      <point x="2.885749545384897E-4" y="43.99972313600415" />
+    </edge>
+    <edge source="org.arrecadou.Model.AcaoContribuicaoDireta" target="org.arrecadou.Model.DoacaoDinheiro" relationship="TO_MANY">
+      <point x="208.0000000000001" y="28.19076753666411" />
+      <point x="-175.5" y="0.0" />
+    </edge>
+    <edge source="org.arrecadou.View.CadastroCoordenadorView" target="org.arrecadou.Controladores.ControllerCoordenador" relationship="TO_ONE">
+      <point x="187.49999640808056" y="-2.4193326937280517" />
+      <point x="199.938" y="718.804" />
+      <point x="199.938" y="662.0" />
+      <point x="312.865" y="662.0" />
+      <point x="-4.5008904337606737E-4" y="43.999514238522465" />
+    </edge>
+    <edge source="org.arrecadou.Model.AcaoContribuicaoDireta" target="org.arrecadou.Model.Acao" relationship="GENERALIZATION">
+      <point x="207.9995418865036" y="-4.3382597027630254E-5" />
+      <point x="1534.799" y="547.1990000000001" />
+      <point x="1534.799" y="486.0" />
+      <point x="1519.5" y="486.0" />
+      <point x="122.71158430876744" y="139.9997617280156" />
+    </edge>
+    <edge source="org.arrecadou.Services.ServiceAcaoProducao" target="org.arrecadou.Repositories.EntidadeRepository" relationship="TO_ONE">
+      <point x="53.997126009024214" y="-56.00033638274658" />
+      <point x="3327.109" y="635.0" />
+      <point x="2457.116" y="635.0" />
+      <point x="1.1031709573217086E-4" y="-14.000478981611082" />
+    </edge>
+    <edge source="org.arrecadou.Services.ServiceAcaoProducao" target="org.arrecadou.Repositories.AcaoProducaoRepository" relationship="TO_ONE">
+      <point x="-231.0" y="39.339142598864555" />
+      <point x="2275.1546207175966" y="984.6254789816111" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.arrecadou.View.MainScreen" target="org.arrecadou.View.CadastrarEntidade" relationship="CREATE">
+      <point x="-15.000263457872279" y="104.0" />
+      <point x="3531.082" y="1555.222" />
+      <point x="147.0" y="-14.99974150504363" />
+    </edge>
+    <edge source="org.arrecadou.View.CadastrarEntidade" target="org.arrecadou.View.MainScreen" relationship="CREATE">
+      <point x="147.0" y="-29.99974150504363" />
+      <point x="3516.082" y="1540.222" />
+      <point x="-30.00026345787228" y="104.0" />
+    </edge>
+    <edge source="org.arrecadou.Services.ServiceAcaoProducao" target="org.arrecadou.Model.Colaborador" relationship="CREATE">
+      <point x="-231.0" y="-23.660857401135445" />
+      <point x="2939.148" y="921.6254789816111" />
+      <point x="100.38410868981418" y="92.00000000000006" />
+    </edge>
+    <edge source="org.arrecadou.View.MainScreen" target="org.arrecadou.View.CadastrarDoacaoItemAcaoDeProducaoView" relationship="CREATE">
+      <point x="234.0" y="-30.0" />
+      <point x="4145.705" y="1208.3062758349208" />
+      <point x="4145.705" y="1796.7217415050436" />
+      <point x="1305.254" y="1796.7217415050436" />
+      <point x="-14.999538944911592" y="116.0" />
+    </edge>
+    <edge source="org.arrecadou.Controladores.ControllerAcaoContribuicaoDireta" target="org.arrecadou.Services.ServiceGeradorRelatoriosPDF" relationship="TO_ONE">
+      <point x="-83.61023564432475" y="-67.99993027676862" />
+      <point x="723.6859999999999" y="-31.289" />
+      <point x="4013.728" y="-31.289" />
+      <point x="4013.728" y="720.0" />
+      <point x="3527.638" y="720.0" />
+      <point x="-4.3672523725035717E-4" y="31.500004364155643" />
+    </edge>
+    <edge source="org.arrecadou.View.RelatorioFinalAcoes" target="org.arrecadou.Controladores.ControllerRelatorios" relationship="TO_ONE">
+      <point x="215.49957124066304" y="1.7654595046678878E-4" />
+      <point x="3508.0" y="1095.888" />
+      <point x="3508.0" y="1068.0" />
+      <point x="3775.055" y="1068.0" />
+      <point x="5.255773839962785E-5" y="44.00013547042954" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.3591553224726624" showDependencies="true" x="2893.057553398058" y="1009.1167378640775" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
